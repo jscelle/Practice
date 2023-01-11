@@ -14,7 +14,7 @@ int getMax(int arr[], int size)
 // функция сортировки одного разряда
 void countingSort(int arr[], int size, int div) 
 { 
-    int output[size]; 
+    int *output = new int[size]; 
     int count[10] = {0}; 
   
     for (int i = 0; i < size; i++) 
@@ -31,6 +31,8 @@ void countingSort(int arr[], int size, int div)
   
     for (int i = 0; i < size; i++) 
         arr[i] = output[i]; 
+	
+	delete[] output;
 } 
   
 // поразрядная сортировка
@@ -47,7 +49,7 @@ int main()
 	int size;
 	cout<<"Enter the size of the array: "<<endl;
 	cin>>size;
-	int arr[size];
+	int *arr = new int[size];
 	cout<<"Enter "<<size<<" integers in any order"<<endl;
 	for(int i=0;i<size;i++)
 	{
@@ -67,5 +69,6 @@ int main()
 		cout<<arr[i]<<" ";
 	} 
     
+	delete[] arr;
     return 0; 
 }
