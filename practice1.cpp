@@ -133,51 +133,9 @@ void izogramm() {
     cout << "True";
 }
 
-std::string encryptString(std::string str, int c) {
-	/*
-		tmp_c - кол-во столбцов квадрата с учетом добавления
-		новых символов в строку
-		0123456  	     0123			   01
-		abcdehu    => adubceh   =>   adube_ch
-		tmp_c = 3	  tmp_c = 2		 tmp_c = 1
-	*/
-	int tmp_c = c;
-	int shift = 0;
-	int insert_shift;
-	int j = 0;
-
-	// Цикл по кол-ву колонок квадрата
-	for(int i = 0; i < c; i++) {
-		// Длина строки - длина добавленных символов
-		j = (str.length() - 1) - shift;
-		// Сдвиг для вставки букв (с учетом длины добавленных символов)
-		insert_shift = shift;
-		while(j >= 0) {
-			if (j % tmp_c == 0) {
-				// Буква с индексом j с учетом длины добавленных символов
-				char letter = str[j + shift];
-				// Добавить в конец
-				str.insert(str.begin()+insert_shift, letter);
-				// Сдвинуть индексы (длина добавленных символов)
-				shift++;
-				// Удалить букву с индексом j с учетом добавленных символов
-				str.erase(j + shift, 1);
-			}
-			j--;
-		}
-		// Добавление пробелов, если длина строчки не равна числу колонок
-		while(shift % (c-1) != 0) {
-			str.insert(str.begin()+shift, ' ');
-			shift++;
-		}
-		tmp_c--;
-	}
-	return str;
-}
-
 
 int main() {
     //izogramm();
-       //bob();
+    //bob();
     substring();
 }
