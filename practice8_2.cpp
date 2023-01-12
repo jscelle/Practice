@@ -17,7 +17,8 @@ int main() {
     string in; getline(cin, in);
     istringstream sstream(normalize_string(in));
     string word;
-    while (sstream >> word) m[word]++;
+    while (sstream >> word) 
+        m[word]++;
     for (auto pair : m) {
         cout << pair.first << '-' << pair.second << '\n';
     }
